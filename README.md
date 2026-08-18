@@ -41,9 +41,8 @@ GoogleAppsScriptCalculator/
 ├── Styles.html
 ├── Javascript.html
 ├── README.md
-└── screenshots/
-    ├── calculator.png
-    └── google-sheet.png
+├── calculator.png
+├── google-sheet.png
 ```
 
 ---
