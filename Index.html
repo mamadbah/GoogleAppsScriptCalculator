@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Google Apps Script Calculator</title>
+
+  <?!= include("Styles"); ?>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="calculator-card">
+
+        <div class="header">
+
+            <h1>🧮 Calculator</h1>
+
+            <p class="subtitle">
+                Google Apps Script + Google Sheets
+            </p>
+
+            <div id="clock"></div>
+
+        </div>
+
+        <input
+            id="display"
+            class="display"
+            type="text"
+            readonly
+            placeholder="0">
+
+        <div class="buttons">
+
+            <!-- First Row -->
+            <button class="btn clear" onclick="clearDisplay()">C</button>
+            <button class="btn operator" onclick="backspace()">⌫</button>
+            <button class="btn operator" onclick="press('%')">%</button>
+            <button class="btn operator" onclick="press('/')">÷</button>
+
+            <!-- Second Row -->
+            <button class="btn" onclick="press('7')">7</button>
+            <button class="btn" onclick="press('8')">8</button>
+            <button class="btn" onclick="press('9')">9</button>
+            <button class="btn operator" onclick="press('*')">×</button>
+
+            <!-- Third Row -->
+            <button class="btn" onclick="press('4')">4</button>
+            <button class="btn" onclick="press('5')">5</button>
+            <button class="btn" onclick="press('6')">6</button>
+            <button class="btn operator" onclick="press('-')">−</button>
+
+            <!-- Fourth Row -->
+            <button class="btn" onclick="press('1')">1</button>
+            <button class="btn" onclick="press('2')">2</button>
+            <button class="btn" onclick="press('3')">3</button>
+            <button class="btn operator" onclick="press('+')">+</button>
+
+            <!-- Fifth Row -->
+            <button class="btn zero" onclick="press('0')">0</button>
+            <button class="btn" onclick="press('.')">.</button>
+            <button class="btn equal" onclick="calculate()">=</button>
+
+        </div>
+
+    </div>
+
+    <div class="history-card">
+
+        <h2>📜 Recent Calculations</h2>
+
+        <div id="history">
+
+            <p class="empty">
+                No calculations yet.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<?!= include("Javascript"); ?>
+
+</body>
+</html>
