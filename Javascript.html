@@ -1,0 +1,151 @@
+<script>
+
+let history = [];
+
+// ----------------------------
+// Add characters to display
+// ----------------------------
+function press(value){
+
+    document.getElementById("display").value += value;
+
+}
+
+// ----------------------------
+// Clear display
+// ----------------------------
+function clearDisplay(){
+
+    document.getElementById("display").value="";
+
+}
+
+// ----------------------------
+// Delete last character
+// ----------------------------
+function backspace(){
+
+    let display=document.getElementById("display");
+
+    display.value=display.value.slice(0,-1);
+
+}
+
+// ----------------------------
+// Update Clock
+// ----------------------------
+function updateClock(){
+
+    let now=new Date();
+
+    document.getElementById("clock").innerHTML=
+    now.toLocaleDateString()+"<br>"+now.toLocaleTimeString();
+
+}
+
+setInterval(updateClock,1000);
+
+window.onload=function(){
+
+    updateClock();
+
+}
+
+// ----------------------------
+// Keyboard Support
+// ----------------------------
+document.addEventListener("keydown",function(e){
+
+    const key=e.key;
+
+    if("0123456789+-*/.%".includes(key)){
+
+        press(key);
+
+    }
+
+    if(key==="Enter"){
+
+        e.preventDefault();
+
+        calculate();
+
+    }
+
+    if(key==="Backspace"){
+
+        backspace();
+
+    }
+
+    if(key==="Escape"){
+
+        clearDisplay();
+
+    }
+
+});
+
+// ----------------------------
+// Add history to page
+// ----------------------------
+function addHistory(expression,result){
+
+    history.unshift(expression+" = "+result);
+
+    if(history.length>10){
+
+        history.pop();
+
+    }
+
+    let html="";
+
+    history.forEach(item=>{
+
+        html+=`
+        <div class="history-item">
+
+            ${item}
+
+        </div>
+        `;
+
+    });
+
+    document.getElementById("history").innerHTML=html;
+
+}
+
+// ----------------------------
+// Calculate
+// ----------------------------
+function calculate(){
+
+    let display=document.getElementById("display");
+
+    let expression=display.value;
+
+    if(expression=="") return;
+
+    try{
+
+        let result=Function('"use strict"; return ('+expression+')')();
+
+        display.value=result;
+
+        addHistory(expression,result);
+
+        google.script.run.saveCalculation(expression,result);
+
+    }
+
+    catch(error){
+
+        alert("Invalid expression.");
+
+    }
+
+}
+
+</script>
