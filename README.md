@@ -81,11 +81,11 @@ Every completed calculation is automatically stored in Google Sheets.
 
 ### Calculator
 
-![Calculator](screenshots/calculator.png)
+![Calculator](calculator.png)
 
 ### Google Sheet Log
 
-![Google Sheet](screenshots/google-sheet.png)
+![Google Sheet](google-sheet.png)
 
 ---
 
