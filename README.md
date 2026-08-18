@@ -77,14 +77,15 @@ Every completed calculation is automatically stored in Google Sheets.
 
 ---
 
-## 🚀 Future Improvements
+## 📸 Screenshots
 
-- Dark Mode
-- Scientific Calculator Functions
-- Export History to CSV
-- Load History from Google Sheets
-- User Authentication
-- Calculation Statistics Dashboard
+### Calculator
+
+![Calculator](screenshots/calculator.png)
+
+### Google Sheet Log
+
+![Google Sheet](screenshots/google-sheet.png)
 
 ---
 
